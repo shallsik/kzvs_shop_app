@@ -1,15 +1,153 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }}</title>
-</head>
-<body>
-    <p>{{ content }}</p>
-    {% if is_authenticated %}
-        <p>{{ list.0 }}</p>
-        <p>{{ dict.first }}</p>
-    {% endif %}
-</body>
-</html>
+{% extends "main/base.html" %}
+ {% load static %}
+
+
+ {% block css %}
+    <link rel="stylesheet" href="{% static "deps/css/my_footer_css.css" %}">
+ {% endblock css %}
+
+{% block content %}
+<div class="upperdiv">
+    <div class="container text-center">
+        <img class="imgmain" src="{% static "deps/images/logo-140.png" %}" alt="KZVS icon">
+        <div class="container text-center">
+            <ul class="worked">
+                <li class="fs-1 main-p hotite"> 
+                    ХОТИТЕ СДЕЛАТЬ СВОЙ БИЗНЕС УСПЕШНЫМ
+                </li>  
+                <li class="fs-5 main-p hotite"> 
+                    ЗВОНИТЕ НАМ
+                </li>
+                <li class="fs-4 main-p">
+                    <div class="copy-clipboard">
+                        <i class="bi bi-clipboard-plus btn p-1 pt-0" data-bs-toggle="tooltip" title="Скопировать"><span class="fs-4 main-p text-center">8&nbsp;800&nbsp;505&nbsp;05&nbsp;25</span></i>
+                    </div>
+                </li>
+                <li class="fs-4 main-p"> 
+                    Пн-Пт с 7:45 до 16:30
+                </li>
+                <li class="fs-4 main-p">
+                    перерыв с 12:00 до 12:45   
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container foncon">
+    <div class="row mt-1 nomarg pb-4">
+
+        <div class="col-lg-12 px-0">
+            <!-- Контент на странице -->
+            <div class="backgradio">
+            <div id="carouselExample" class="carousel slide carousel-fade">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="{% static "deps/images/main-carousel1.jpg" %}" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="{% static "deps/images/main-carousel2.jpg" %}" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="{% static "deps/images/main-carousel3.jpg" %}" class="d-block w-100" alt="...">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+            <div class="container text-center divtex">
+                <h2 class="mt-5 pt-5 "><strong class="main-d">НАШ ИМПОРТ</strong></h2>
+                <div class="text-center divline">
+                <figure class="country">
+                    <img src="{% static "deps/images/turkey.png" %}" class="rounded float" alt="...">
+                    <strong><p class="main-d fs-3">Турция</p></strong>
+                </figure>
+                <figure class="country">
+                    <img src="{% static "deps/images/india.png" %}" class="rounded float" alt="...">
+                    <strong>
+                        <p class="main-d fs-3">Индия</p>
+                    </strong>
+                </figure>
+                <figure class="country">
+                    <img src="{% static "deps/images/china.png" %}" class="rounded float" alt="...">
+                    <strong>
+                        <p class="main-d fs-3">Китай</p>
+                    </strong>
+                </figure>
+                <figure class="country">
+                    <img src="{% static "deps/images/serbia.png" %}" class="rounded float" alt="...">
+                    <strong>
+                        <p class="main-d fs-3">Сербия</p>
+                    </strong>
+                </figure>
+                </div>
+            </div>
+                <div class="container text-center">
+                
+                    <div class="container flex">
+                        <img class="stranit" src="{% static "deps/images/stranitsa7.jpg" %}" alt="">
+                    </div>
+                    <p class="main-d fs-2 mrgmin"><strong class="main-d">ОПЕРАТИВНОСТЬ</strong></p>
+                    <div class="d-flex justify-content-center align-items-center">
+                        <ul class="list-group list-group-item-danger fs-5 listgr lswidth">
+                            <li class="list-group-item listind"><b class="orange">&#62;</b> Более 18 500 м2 лицензированных складских помещений в разных регионах России.</li>
+                            <li class="list-group-item listind"><b class="orange">&#62;</b> Склады оснащены современным оборудованием и полностью соответствуют требованиям 
+                                хранения ветеринарных препаратов и других товарных групп, в том числе и холодильные складские помещения для хранения вакцин.</li>
+                            <li class="list-group-item listind"><b class="orange">&#62;</b> Сборка и погрузка товара происходит 24 часа в сутки.</li>
+                            <li class="list-group-item listind"><b class="orange">&#62;</b> Более 80 единиц собственного, современного, брендированного автотранспорта разной грузоподъемности.</li>
+                            <li class="list-group-item listind"><b class="orange">&#62;</b> Автотранспорт оснащен специализированными термобудками с датчиками поддержания постоянного температурного режима.</li>
+                            <li class="list-group-item listind"><b class="orange">&#62;</b> Весь транспорт оборудован GPS навигацией и системой ГЛОНАСС.</li>
+                            <li class="list-group-item listind"><b class="orange">&#62;</b> Доставка осуществляется как собственным автотранспортом, так и через Транспортную компанию в любую точку России и стран ЕАЭС.</li>
+                            <li class="list-group-item listind"><b class="orange">&#62;</b> Сотрудничаем со всеми транспортными компаниями и службами доставки, удобными для наших клиентов.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+{% block scriptcopy %}
+<script>
+    let copyList  = document.querySelectorAll( '.copy-clipboard' );
+    let copyArray = Array.prototype.slice.call( copyList );
+
+    function tooltipUpdate( button, tooltip, title ) {
+        tooltip.dispose();
+        button.setAttribute( 'title', title );
+        tooltip = new bootstrap.Tooltip( button );
+        tooltip.show();
+
+        return tooltip;
+    }
+
+    copyArray.map( function ( copy ) {
+        let text    = copy.querySelector( 'span' ).innerText;
+        let button  = copy.querySelector( 'i' );
+        let tooltip = new bootstrap.Tooltip( button );
+
+        button.addEventListener( 'mouseover', function () {
+            tooltip = tooltipUpdate( button, tooltip, 'Скопировать' );
+            this.classList.remove( 'bi-clipboard-check' );
+            this.classList.add( 'bi-clipboard-plus' );
+        } );
+
+        button.addEventListener( 'click', function () {
+            window.navigator.clipboard.writeText( text );
+            tooltip = tooltipUpdate( button, tooltip, 'Готово!' );
+            this.classList.remove( 'bi-clipboard-plus' );
+            this.classList.add( 'bi-clipboard-check' );
+        } );
+    } );
+</script>
+{% endblock scriptcopy %}
+
