@@ -1,0 +1,69 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+
+{% block content %}
+<div class="container">
+    <div class="row mt-1">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-11">
+            <!-- Контент на странице -->
+            <div class="container mt-5">
+                <div class="card mb-4 custom-shadow">
+                    <div class="row justify-content-center">
+                        <!-- Миниатюры -->
+                        <div class="col-md-5 d-flex justify-content-center align-items-center">
+                            <img src="../deps/images/goods/alphapet-white-fish-for-old-dog-min-porod.jpg"
+                                class="img-thumbnail" data-bs-toggle="modal" data-bs-target="#imageModal1">
+                        </div>
+                        <div class="col-md-6 ">
+                            <p class="pt-3">Описание: Белая рыба для взрослых собак средних и крупных пород. 2 кг. Сухой полнорационный корм из белой рыбы для взрослых собак средних и крупных пород.
+                                Монобелковая рецептура - благодаря единственному источнику животного белка подойдет животным с пищевой непереносимостью
+                            Свежая рыба ингредиент №1 в составе
+                            Большой процент животного белка
+                            Уникальный комплекс натуральных добавок AlphaPetBIO®
+                            Высшая категория качества Holistiс (холистик)
+                            Низкозерновая рецептура
+                            Поедаемость и вкусовая привлекательность проверены в собственном центре AlphaPet
+                            Не содержит пшеницу, кукурузу и глютен
+                            Бережная технология производства, сохраняющая вкусовые и питательные свойства свежего мяса
+                            Не содержит ГМО, искусственных красителей и ароматизаторов
+                            Ингредиенты, пригодные в пищу человеку, уровня Human Grade
+                            </p>
+                            <p class="product_id mt-3">id: 00012</p>
+
+                        </div>
+                        <!-- Увеличить изображение в модальном окне -->
+                        <div class="modal fade" id="imageModal1" tabindex="-1"
+                            aria-labelledby="imageModal1Label" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="imageModal1Label">Изображение 1</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Закрыть"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <img src="../deps/images/goods/alphapet-white-fish-for-old-dog-min-porod.jpg"
+                                            class="img-fluid" alt="Изображение 1">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Описание товара -->
+
+                    <div class="card-body">
+                        <p class="card-text">Цена: <strong>645 руб</strong></p>
+                        <h5 class="card-title">Белая рыба для взрослых собак средних и крупных пород</h5>
+                        <p class="card-text">2 кг. Сухой полнорационный корм из белой рыбы для взрослых собак средних и крупных пород.</p>
+                        <a href="#" class="btn btn-dark add-to-cart">Добавить в корзину</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+

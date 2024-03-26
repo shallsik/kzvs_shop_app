@@ -1,0 +1,326 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+
+
+{% block content %}
+<div class="container">
+    <div class="row mt-1">
+        <div class="col-lg-1">
+            <!-- Пустой блок на усмотрение -->
+        </div>
+        <div class="col-lg-11">
+            <!-- Контент на странице -->
+            <div class="row">
+                <!-- Форма фильтров -->
+                <div class="dropdown mb-2">
+                    <button class="btn btn-secondary dropdown-toggle btn-dark" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Фильтры
+                    </button>
+            
+                    <form action="" method="get" class="dropdown-menu bg-dark" data-bs-theme="dark">
+                        <div class="form-check text-white mx-3">
+                            <input class="form-check-input" type="checkbox" name="on_sale" id="flexCheckDefault" value="on">
+                            <input type="hidden" name="q" value="request.GET.q">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Товары по акции
+                            </label>
+                        </div>
+                        <p class="text-white mx-3 mt-3">Сортировать:</p>
+                        <div class="form-check text-white mx-3">
+                            <input class="form-check-input" type="radio" name="order_by" id="flexRadioDefault1" value="default" checked>
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                По умолчанию
+                            </label>
+                        </div>
+                        <div class="form-check text-white mx-3">
+                            <input class="form-check-input" type="radio" name="order_by" id="flexRadioDefault2" value="price">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                От дешевых к дорогим
+                            </label>
+                        </div>
+                        <div class="form-check text-white mx-3">
+                            <input class="form-check-input" type="radio" name="order_by" id="flexRadioDefault3" value="-price">
+                            <label class="form-check-label" for="flexRadioDefault3">
+                                От дорогих к дешевым
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary mx-3 mt-3">Применить</button>
+                    </form>
+                </div>
+                <!-- Карта товара -->
+                <div class="col-lg-3 col-md-6 p-4">
+                    <div class="card border-primary rounded custom-shadow">
+                        <img src="../deps/images/goods/zoocharm-for-yung-cats.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <a href="../goods/product.html">
+                                <p class="card-title">ZOOCHARM Для котят</p>
+                            </a>
+                            <p class="card-text text-truncate">1.5 кг, Индейка, рис.</p>
+                            <p class="product_id">id: 00001</p>
+                            <div class="d-flex justify-content-between">
+                                <p><strong>450 руб</strong></p>
+                                <a href="#" class="btn add-to-cart">
+                                    <img class="mx-1" src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
+                                        width="32" height="32">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Карта товара -->
+                <div class="col-lg-3 col-md-6 p-4">
+                    <div class="card border-primary rounded custom-shadow">
+                        <img src="../deps/images/goods/zoocharm-for-old-cats.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <a href="#">
+                                <p class="card-title">ZOOCHARM Корм для взрослых кошек</p>
+                            </a>
+                            <p class="card-text text-truncate">1.5 кг, свинина, лосось, рис</p>
+                            <p class="product_id">id: 00002</p>
+                            <div class="d-flex justify-content-between">
+                                <p><strong>450 руб</strong></p>
+                                <a href="#" class="btn add-to-cart">
+                                    <img class="mx-1" src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
+                                        width="32" height="32">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Карта товара -->
+                <div class="col-lg-3 col-md-6 p-4">
+                    <div class="card border-primary rounded custom-shadow">
+                        <img src="../deps/images/goods/zoocharm-milky-way-grill.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <a href="#">
+                                <p class="card-title">ZOOCHARM Влажный корм</p>
+                            </a>
+                            <p class="card-text text-truncate">Молочный ломтик вяленый</p>
+                            <p class="product_id">id: 00003</p>
+                            <div class="d-flex justify-content-between">
+                                <p><strong>40 руб</strong></p>
+                                <a href="#" class="btn">
+                                    <img class="mx-1" src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
+                                        width="32" height="32">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Карта товара -->
+                <div class="col-lg-3 col-md-6 p-4">
+                    <div class="card border-primary rounded custom-shadow">
+                        <img src="../deps/images/goods/VG-osheinik-tigr-biruze-for-dog.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <a href="#">
+                                <p class="card-title">Ошейник VG для собак</p>
+                            </a>
+                            <p class="card-text text-truncate">Кожаный с тигром бирюзовый и черными изогнутыми шипами.</p>
+                            <p class="product_id">id: 00004</p>
+                            <div class="d-flex justify-content-between">
+                                <p><strong>1245 руб</strong></p>
+                                <a href="#" class="btn">
+                                    <img class="mx-1" src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
+                                        width="32" height="32">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Карта товара -->
+                <div class="col-lg-3 col-md-6 p-4">
+                    <div class="card border-primary rounded custom-shadow">
+                        <img src="../deps/images/goods/VG-toy-for-dog-guantel.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <a href="#">
+                                <p class="card-title">Игрушка VG для собак </p>
+                            </a>
+                            <p class="card-text text-truncate">Древ.основе с отвер. для корма Гантеля с аром. курицы</p>
+                            <p class="product_id">id: 00005</p>
+                            <div class="d-flex justify-content-between">
+                                <p><strong>299 руб</strong></p>
+                                <a href="#" class="btn">
+                                    <img class="mx-1" src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
+                                        width="32" height="32">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Карта товара -->
+                <div class="col-lg-3 col-md-6 p-4">
+                    <div class="card border-primary rounded custom-shadow">
+                        <img src="../deps/images/goods/silitter-napolnitel-siligel-aloe-vera.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <a href="#">
+                                <p class="card-title">Silica Light Наполнитель силикагелевый</p>
+                            </a>
+                            <p class="card-text text-truncate">Объем 5л, ALOE VERA</p>
+                            <p class="product_id">id: 00006</p>
+                            <div class="d-flex justify-content-between">
+                                <p><strong>399 руб</strong></p>
+                                <a href="#" class="btn">
+                                    <img class="mx-1" src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
+                                        width="32" height="32">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Карта товара -->
+                <div class="col-lg-3 col-md-6 p-4">
+                    <div class="card border-primary rounded custom-shadow">
+                        <img src="../deps/images/goods/silitter-napolnitel-bentonil-lavanda.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <a href="#">
+                                <p class="card-title">Silitter Наполнитель бентонитовый</p>
+                            </a>
+                            <p class="card-text text-truncate">Объем 5л, ЛАВАНДА</p>
+                            <p class="product_id">id: 00007</p>
+                            <div class="d-flex justify-content-between">
+                                <p><strong>499 руб</strong></p>
+                                <a href="#" class="btn">
+                                    <img class="mx-1" src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
+                                        width="32" height="32">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Карта товара -->
+                <div class="col-lg-3 col-md-6 p-4">
+                    <div class="card border-primary rounded custom-shadow">
+                        <img src="../deps/images/goods/yugi-lezhanka-for-dogs-blue.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <a href="#">
+                                <p class="card-title">YUGI Лежанка комбинированная</p>
+                            </a>
+                            <p class="card-text text-truncate">Серо-синяя 68*59*25см<</p>
+                            <p class="product_id">id: 00008</p>
+                            <div class="d-flex justify-content-between">
+                                <p><strong>1499 руб</strong></p>
+                                <a href="#" class="btn">
+                                    <img class="mx-1" src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
+                                        width="32" height="32">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Карта товара -->
+                <div class="col-lg-3 col-md-6 p-4">
+                    <div class="card border-primary rounded custom-shadow">
+                        <img src="../deps/images/goods/yugi-kletka-dlya-ptic-39.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <a href="#">
+                                <p class="card-title">YUGI Клетка  для птиц</p>
+                            </a>
+                            <p class="card-text text-truncate">Красное дно 39,5*29,5*45,5см</p>
+                            <p class="product_id">id: 00009</p>
+                            <div class="d-flex justify-content-between">
+                                <p><strong>899 руб</strong></p>
+                                <a href="#" class="btn">
+                                    <img class="mx-1" src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
+                                        width="32" height="32">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Карта товара -->
+                <div class="col-lg-3 col-md-6 p-4">
+                    <div class="card border-primary rounded custom-shadow">
+                        <img src="../deps/images/goods/bestdinner-sterlised-adult-hypoallergenic.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <a href="#">
+                                <p class="card-title">Best Dinner Целостный гиппоалергенный</p>
+                            </a>
+                            <p class="card-text text-truncate">3 кг. Для взрослых стерилизованных кошек. Ягненок И Базилик</p>
+                            <p class="product_id">id: 00010</p>
+                            <div class="d-flex justify-content-between">
+                                <p><strong>799 руб</strong></p>
+                                <a href="#" class="btn">
+                                    <img class="mx-1" src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
+                                        width="32" height="32">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Карта товара -->
+                <div class="col-lg-3 col-md-6 p-4">
+                    <div class="card border-primary rounded custom-shadow">
+                        <img src="../deps/images/goods/bestdinner-exclusive-vet-Profi-Renal.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <a href="#">
+                                <p class="card-title">Best Dinner Exclusive Vet Profi Renal</p>
+                            </a>
+                            <p class="card-text text-truncate">Кусочки в соусе, Говядина</p>
+                            <p class="product_id">id: 00011</p>
+                            <div class="d-flex justify-content-between">
+                                <p><strong>945 руб</strong></p>
+                                <a href="#" class="btn">
+                                    <img class="mx-1" src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
+                                        width="32" height="32">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Карта товара -->
+                <div class="col-lg-3 col-md-6 p-4">
+                    <div class="card border-primary rounded custom-shadow">
+                        <img src="../deps/images/goods/alphapet-white-fish-for-old-dog-min-porod.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <a href="#">
+                                <p class="card-title">Alpha Pet Белая рыба</p>
+                            </a>
+                            <p class="card-text text-truncate">Белая рыба для взрослых собак средних и крупных пород. 2 кг. Сухой полнорационный корм из белой рыбы для взрослых собак средних и крупных пород.
+                                Монобелковая рецептура - благодаря единственному источнику животного белка подойдет животным с пищевой непереносимостью
+                            Свежая рыба ингредиент №1 в составе
+                            Большой процент животного белка
+                            Уникальный комплекс натуральных добавок AlphaPetBIO®
+                            Высшая категория качества Holistiс (холистик)
+                            Низкозерновая рецептура
+                            Поедаемость и вкусовая привлекательность проверены в собственном центре AlphaPet
+                            Не содержит пшеницу, кукурузу и глютен
+                            Бережная технология производства, сохраняющая вкусовые и питательные свойства свежего мяса
+                            Не содержит ГМО, искусственных красителей и ароматизаторов
+                            Ингредиенты, пригодные в пищу человеку, уровня Human Grade</p>
+                            <p class="product_id">id: 00012</p>
+                            <div class="d-flex justify-content-between">
+                                <p><strong>645 руб</strong></p>
+                                <a href="#" class="btn">
+                                    <img class="mx-1" src="../deps/icons/cart-plus.svg" alt="Catalog Icon"
+                                        width="32" height="32">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- Пагинация -->
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center my-4">
+                    <div class="custom-shadow d-flex">
+                        <li class="page-item disabled">
+                          <a class="page-link">Previous</a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                          <a class="page-link" href="#">Next</a>
+                        </li>
+                    </div>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+        
+{% endblock content %}
+

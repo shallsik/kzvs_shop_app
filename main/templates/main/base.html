@@ -9,11 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static "deps/css/bootstrap/bootstrap.min.css" %}">
     <link rel="stylesheet" href="{% static "deps/css/my_css.css" %}">
-    <!-- Стиль footer-a для главной страницы -->
-    {% block css %}
-
-    {% endblock css %}
-    <!-- Favicons for different platforms -->
+    <link rel="stylesheet" href="{% static "deps/css/my_footer_css.css" %}">
     <link rel="apple-touch-icon" sizes="180x180" href="{% static "deps/favicon/apple-touch-icon.png" %}">
     <link rel="icon" type="image/png" sizes="32x32" href="{% static "deps/favicon/favicon-32x32.png" %}">
     <link rel="icon" type="image/png" sizes="16x16" href="{% static "deps/favicon/favicon-16x16.png" %}">
@@ -67,7 +63,8 @@
             </div>
         </nav>
     </header>
-
+    <div class="wrapper">
+    <div class="content">
     <section>
         <div class="container">
             <!-- Каталог и корзина с фиксированным расположением на странице -->
@@ -81,12 +78,12 @@
                             height="16">
                     </button>
                     <ul class="dropdown-menu bg-dark" data-bs-theme="dark">
-                        <li><a class="dropdown-item text-white" href="goods/catalog.html">Все товары</a></li>
-                        <li><a class="dropdown-item text-white" href="goods/catalog.html">Сухие корма</a></li>
-                        <li><a class="dropdown-item text-white" href="goods/catalog.html">Влажные корма</a></li>
-                        <li><a class="dropdown-item text-white" href="goods/catalog.html">Игрушки</a></li>
-                        <li><a class="dropdown-item text-white" href="goods/catalog.html">Клетки</a></li>
-                        <li><a class="dropdown-item text-white" href="goods/catalog.html">Аксессуары</a></li>
+                        <li><a class="dropdown-item text-white" href="{% url "catalog:index" %}">Все товары</a></li>
+                        <li><a class="dropdown-item text-white" href="{% url "catalog:index" %}">Сухие корма</a></li>
+                        <li><a class="dropdown-item text-white" href="{% url "catalog:index" %}">Влажные корма</a></li>
+                        <li><a class="dropdown-item text-white" href="{% url "catalog:index" %}">Игрушки</a></li>
+                        <li><a class="dropdown-item text-white" href="{% url "catalog:index" %}">Клетки</a></li>
+                        <li><a class="dropdown-item text-white" href="{% url "catalog:index" %}">Аксессуары</a></li>
                     </ul>
                 </div>
                 <!-- Значек корзины, вызывает модальное окно -->
@@ -169,6 +166,9 @@
         
             {% endblock content %}
     </section>
+    </div>
+    </div>
+    <div class="footer">
     <div class="container">
         <footer class="myfooter d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
             <p class="col-md-4 mb-0 text-muted">&copy; 2024 «КРАСНОДАРЗООВЕТСНАБ»</p>
