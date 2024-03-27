@@ -30,3 +30,6 @@ class Products(models.Model):
         
     def __str__(self) -> str:
         return f'{self.name} Количество - {self.quantity}'
+    
+    def display_id(self):
+        return f'{self.id:05}'
