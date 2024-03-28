@@ -91,10 +91,6 @@ body {
   background-color: rgb(100, 66, 56);
 }
 
-
-
-
-
 .upperdiv {
   background-image: url(../images/video-fon.jpg);
   width: 100%;
@@ -128,6 +124,14 @@ body {
     -moz-columns: 1;
   }
 }
+
+@media (min-width: 992px) {
+  .katalog {
+    padding: 0!important;
+    margin-left: 1rem;
+  }
+}
+
 
 .imgmain {
   -webkit-filter: drop-shadow(5px 5px 5px #222);
