@@ -13,19 +13,19 @@
             <!-- Контент на странице -->
             <div class="row">
                 <!-- Форма фильтров -->
-                <div class="dropdown mb-2">
-                    <button class="btn btn-secondary dropdown-toggle btn-dark" type="button" data-bs-toggle="dropdown"
+                <div class="dropdown mb-2 pt-2">
+                    <button class="btn btn-secondary dropdown-toggle btn-dark navbarbg fw-bolder fs-5 main-p pt-1 pb-2" type="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         Фильтры
                     </button>
             
-                    <form action="{% if request.GET.q %}{% url "catalog:search" %}{% else %}{% url "catalog:index" slug_url %}{% endif %}" method="get" class="dropdown-menu bg-dark" data-bs-theme="dark">
+                    <form action="{% if request.GET.q %}{% url "catalog:search" %}{% else %}{% url "catalog:index" slug_url %}{% endif %}" method="get" class="dropdown-menu navbarbg" data-bs-theme="dark">
                         <div class="form-check text-white mx3">
                             {% if request.GET.q %}
                                 <input type="hidden" name="q" value="{{ request.GET.q }}">
                             {% endif %}
                         </div>
-                        <p class="text-white mx-3">Сортировать:</p>
+                        <p class="text-white mx-3 fw-bolder fs-5 main-p">Сортировать:</p>
                         <div class="form-check text-white mx-3">
                             <input class="form-check-input" type="radio" name="order_by" id="flexRadioDefault1" value="default" 
                             {% if not request.GET.order_by or request.GET.order_by == 'default' %}checked{% endif %}>
@@ -51,7 +51,12 @@
                     </form>
                 </div>
 
-
+                {% if request.GET.q %}
+                    <h3 class="mt-4 main-p">Результаты поиска по запросу "{{ request.GET.q }}"</h3> 
+                {% if not goods %}
+                    <h3 class="mt-4 main-p">По запросу ничего не найдено</h3> 
+                {% endif %}
+                {% endif %}
                 {% for product in goods %}
                 <!-- Карта товара -->
                 <div class="col-lg-3 col-md-6 p-4">
@@ -62,7 +67,7 @@
                         <img src="{% static "deps/images/image-not-found.jpg" %}" class="card-img-top" alt="...">
                         {% endif %}
                         <div class="card-body">
-                            <a href="{% url "catalog:product" product.slug %}">
+                            <a class="ssilka fw-bolder" href="{% url "catalog:product" product.slug %}">
                                 <p class="card-title">{{ product.name }}</p>
                             </a>
                             <p class="card-text text-truncate">{{ product.description }}</p>
@@ -82,7 +87,8 @@
 
             </div>
             <!-- Пагинация -->
-            <nav aria-label="Page navigation example">
+            {% if goods %}
+                <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center my-4">
                     <div class="custom-shadow d-flex">
 
@@ -104,7 +110,8 @@
                         </li>
                     </div>
                 </ul>
-            </nav>
+                </nav>
+            {% endif %}
         </div>
     </div>
 </div>

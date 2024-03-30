@@ -20,10 +20,10 @@
 
 <body class="d-flex flex-column min-vh-100">
     <header>
-        <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+        <nav class="navbar navbar-expand-lg navbarbg logimg submenu">
             <div class="container">
                 <a class="navbar-brand" href="{% url "main:index" %}">
-                    <img class="mx-1" src="{% static "deps/images/logo-kzvs.png" %}" alt="KZVS icon" width="120"></a>
+                    <img class="mx-1 logimg" src="{% static "deps/images/logo-kzvs.png" %}" alt="KZVS icon" width="120"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -32,37 +32,37 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link  text-white" href="{% url "catalog:index" 'all' %}">Все товары</a>
+                            <a class="nav-link  text-white fw-bolder fs-5 main-p" href="{% url "catalog:index" 'all' %}">Все товары</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link  text-white" href="{% url "main:about" %}">О нас</a>
+                            <a class="nav-link  text-white fw-bolder fs-5 main-p" href="{% url "main:about" %}">О нас</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link  text-white" href="carts/cart.html">Корзина</a>
+                            <a class="nav-link  text-white fw-bolder fs-5 main-p" href="carts/cart.html">Корзина</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link  text-white" href="users/login.html">Войти</a>
+                            <a class="nav-link  text-white fw-bolder fs-5 main-p" href="users/login.html">Войти</a>
                         </li>
                         <li class="nav-item dropdown ">
-                            <a class="nav-link dropdown-toggle text-white" href="#" role="button"
+                            <a class="nav-link dropdown-toggle text-white fw-bolder fs-5 main-p" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Мой профиль
                             </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item  text-white" href="carts/cart.html">Корзина</a></li>
-                                <li><a class="dropdown-item  text-white" href="users/profile.html">Личный кабинет</a>
+                            <ul class="dropdown-menu dropdown-menu-dark navbarbg">
+                                <li><a class="dropdown-item  text-white fw-bolder fs-5 main-p" href="carts/cart.html">Корзина</a></li>
+                                <li><a class="dropdown-item  text-white fw-bolder fs-5 main-p" href="users/profile.html">Личный кабинет</a>
                                 </li>
-                                <li><a class="dropdown-item  text-white" href="{% url "admin:index" %}">Админ панель</a></li>
+                                <li><a class="dropdown-item  text-white fw-bolder fs-5 main-p" href="{% url "admin:index" %}">Админ панель</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item  text-white" href="#">Выйти</a></li>
+                                <li><a class="dropdown-item  text-white fw-bolder fs-5 main-p" href="#">Выйти</a></li>
                             </ul>
                         </li>
                     </ul>
                     <form class="d-flex" role="search" action="{% url "catalog:search" %}" method="get">
                         <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success text-white" type="submit">Поиск</button>
+                        <button class="btn btn-outline-success text-white fw-bolder fs-5 main-p" type="submit">Поиск</button>
                     </form>
                 </div>
             </div>
@@ -73,23 +73,23 @@
             <!-- Каталог и корзина с фиксированным расположением на странице -->
             <div class="row mt-5 position-fixed z-3">
                 <!-- Каталог -->
-                <div class="dropdown mb-2">
-                    <button class="btn btn-secondary dropdown-toggle btn-dark" type="button" data-bs-toggle="dropdown"
+                <div class="dropdown mb-2 pt-3">
+                    <button class="btn btn-secondary dropdown-toggle btn-dark navbarbg fw-bolder fs-5 main-p pt-1 pb-2" type="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         Каталог
                         <img class="mx-1" src="{% static "deps/icons/grid-fill.svg" %}" alt="Catalog Icon" width="16"
                             height="16">
                     </button>
-                    <ul class="dropdown-menu bg-dark" data-bs-theme="dark">
+                    <ul class="dropdown-menu navbarbg" data-bs-theme="dark">
                         {% tag_categories as categories %}
                         {% for category in categories %}
-                        <li><a class="dropdown-item text-white" href="{% url "catalog:index" category.slug %}">{{category.name}}</a></li>
+                        <li><a class="dropdown-item text-white fw-bolder fs-5 main-p" href="{% url "catalog:index" category.slug %}">{{category.name}}</a></li>
                         {% endfor %}
                     </ul>
                 </div>
                 <!-- Значек корзины, вызывает модальное окно -->
                 <div>
-                    <button type="button" class="btn btn-dark btn-secondary d-flex" id="modalButton"
+                    <button type="button" class="btn btn-dark btn-secondary d-flex navbarbg" id="modalButton"
                         aria-expanded="false">
                         <img class="mx-1" src="{% static "deps/icons/basket2-fill.svg" %}" alt="Catalog Icon" width="24"
                             height="24">
@@ -102,7 +102,7 @@
                     <div class="modal-dialog modal-dialog-scrollable">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                <button type="button" class="btn-close navbarbg" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
@@ -119,13 +119,13 @@
                                                     <div class="col p-0">
                                                         <div class="input-group">
                                                             <span class="input-group-btn">
-                                                                <button type="button" class="btn btn-dark btn-sm decrement"
+                                                                <button type="button" class="btn btn-dark btn-sm decrement navbarbg"
                                                                     data-cart-id="" data-cart-change-url="">-</button>
                                                             </span>
                                                             <input type="text" class="form-control number" value="1"
                                                                 readonly>
                                                             <span class="input-group-btn">
-                                                                <button type="button" class="btn btn-dark btn-sm increment"
+                                                                <button type="button" class="btn btn-dark btn-sm increment navbarbg"
                                                                     data-cart-id="" data-cart-change-url="">+</button>
                                                             </span>
                                                         </div>
@@ -152,7 +152,7 @@
                                     </div>
                                     <!-- Закончилась разметка корзины -->
                                 </div>
-                                <a class="btn btn-dark" href="orders/create_order.html">
+                                <a class="btn btn-dark navbarbg" href="orders/create_order.html">
                                     Оформить заказ
                                 </a>
                             </div>
