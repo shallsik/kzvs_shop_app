@@ -254,3 +254,17 @@ a.ssilka:active, a.ssilka:hover, a.ssilka {
 .card {
   --bs-card-border-width: 0;
 }
+
+.table-dark {
+  --bs-table-color: #fff;
+  --bs-table-bg: #d6943d;
+  --bs-table-border-color: #8b6027;
+  --bs-table-striped-bg: #63441c;
+  --bs-table-striped-color: #fff;
+  --bs-table-active-bg: #63441c;
+  --bs-table-active-color: #fff;
+  --bs-table-hover-bg: #63441c;
+  --bs-table-hover-color: #fff;
+  color: var(--bs-table-color);
+  border-color: var(--bs-table-border-color);
+}
