@@ -12,6 +12,15 @@ body {
   text-shadow: 1px 1px 2px #000;
 }
 
+
+
+.cartoverflow {
+  overflow:scroll;
+
+  height: 685px;
+}
+
+
 .main-d {
   color: rgb(0, 0, 0);
 }

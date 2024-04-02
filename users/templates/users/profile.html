@@ -95,16 +95,27 @@
                         <!-- Корзина -->
                         {% user_carts request as carts %}
                         <div class="col-md-7">
-                            <div class=" bg-white p-4 mb-4 mx-2 rounded custom-shadow">
-                                <h3 class="text-center mb-4">Корзина</h3>
-                                <div class="container" id="cart-items-container">
+                            {% if carts.total_quantity > 4 %}
+                            <div class="bg-white p-4 mb-4 mx-2 justify-content-between rounded custom-shadow cartoverflow">
+                            {% else %}
+                            <div class="bg-white p-4 mb-4 mx-2 justify-content-between rounded custom-shadow">
+                            {% endif %}
+                                <h3 class="text-center mb-4">Корзина 
+                                    {% if carts %}
+                                    <a class="btn btn-dark navbarbg fs-6 main-p pt-0 pb-1 m-0" href="{% static "orders/create_order.html" %}">
+                                        Оформить заказ
+                                    </a>
+                                    {% endif %}</h3>
+                                <div class="container " id="cart-items-container">
                                     <!-- Разметка корзины -->
                                     {% include "carts/includes/included_cart.html" %}
                                     <!-- Закончилась разметка корзины -->
                                 </div>
-                                <a class="btn btn-dark navbarbg fs-6 main-p pt-0 pb-1 mb-2" href="{% static "orders/create_order.html" %}">
+                                {% if carts %}
+                                <a class="btn btn-dark navbarbg fs-6 main-p pt-0 pb-1 mb-2 ms-2" href="{% static "orders/create_order.html" %}">
                                     Оформить заказ
                                 </a>
+                                {% endif %}
                             </div>
                         </div>
                         <!-- Оформленные заказы -->

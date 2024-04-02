@@ -24,15 +24,27 @@
             <div class="container">
                 <a class="navbar-brand" href="{% url "main:index" %}">
                     <img class="mx-1 logimg" src="{% static "deps/images/logo-kzvs.png" %}" alt="KZVS icon" width="120"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"><i class="fa fa-navicon" style="color:#fff; font-size:28px;"></i></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link  text-white fw-bolder fs-5 main-p" href="{% url "catalog:index" 'all' %}">Все товары</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white fw-bolder fs-5 main-p" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Каталог
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                                    <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                                </svg>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark navbarbg">
+                                {% tag_categories as categories %}
+                                {% for category in categories %}
+                                <li><a class="dropdown-item text-white fw-bolder fs-5 main-p" href="{% url "catalog:index" category.slug %}">{{category.name}}</a></li>
+                                {% endfor %}
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link  text-white fw-bolder fs-5 main-p" href="{% url "main:about" %}">О нас</a>
@@ -49,19 +61,22 @@
                             <a class="nav-link dropdown-toggle text-white fw-bolder fs-5 main-p" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Мой профиль
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                                    <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                                </svg>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-dark navbarbg">
-                                <li><a class="dropdown-item  text-white fw-bolder fs-5 main-p" href="carts/cart.html">Корзина</a></li>
-                                <li><a class="dropdown-item  text-white fw-bolder fs-5 main-p" href="{% url "users:profile" %}">Личный кабинет</a>
+                                <li><a class="dropdown-item text-white fw-bolder fs-5 main-p" href="{% url "users:users_cart" %}">Корзина</a></li>
+                                <li><a class="dropdown-item text-white fw-bolder fs-5 main-p" href="{% url "users:profile" %}">Личный кабинет</a>
                                 </li>
                                 {% if user.is_admin or user.is_staff %}
-                                    <li><a class="dropdown-item  text-white fw-bolder fs-5 main-p" href="{% url "admin:index" %}">Админ панель</a></li>
+                                    <li><a class="dropdown-item text-white fw-bolder fs-5 main-p" href="{% url "admin:index" %}">Админ панель</a></li>
                                 {% endif %}
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
                                 
-                                <li><a class="dropdown-item  text-white fw-bolder fs-5 main-p" href="{% url "users:logout" %}">Выйти</a></li>
+                                <li><a class="dropdown-item text-white fw-bolder fs-5 main-p" href="{% url "users:logout" %}">Выйти</a></li>
                             </ul>
                         </li>
                         {% endif %}
@@ -79,20 +94,7 @@
             <!-- Каталог и корзина с фиксированным расположением на странице -->
             <div class="row mt-5 position-fixed z-3">
                 <!-- Каталог -->
-                <div class="dropdown mb-2 pt-3">
-                    <button class="btn btn-secondary dropdown-toggle btn-dark navbarbg fw-bolder fs-5 main-p pt-1 pb-2" type="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Каталог
-                        <img class="mx-1" src="{% static "deps/icons/grid-fill.svg" %}" alt="Catalog Icon" width="16"
-                            height="16">
-                    </button>
-                    <ul class="dropdown-menu navbarbg" data-bs-theme="dark">
-                        {% tag_categories as categories %}
-                        {% for category in categories %}
-                        <li><a class="dropdown-item text-white fw-bolder fs-5 main-p" href="{% url "catalog:index" category.slug %}">{{category.name}}</a></li>
-                        {% endfor %}
-                    </ul>
-                </div>
+
                 <!-- Значек корзины, вызывает модальное окно -->
                 {% block modal_cart %}
                 
@@ -121,7 +123,6 @@
           </ul>
         </footer>
     <script src="{% static "deps/js/jquery/jquery-3.7.0.min.js" %}"></script>
-    <script src="{% static "deps/js/jquery-events.js" %}"></script>
     <script src="{% static "deps/js/jquery-ajax.js" %}"></script>
     <script src="{% static "deps/js/bootstrap/bootstrap.bundle.min.js" %}"></script>
     {% block scriptcopy %}
