@@ -13,6 +13,18 @@ class Categories(models.Model):
         
     def __str__(self) -> str:
         return self.name
+    
+class Brands(models.Model):
+    name = models.CharField(max_length=70, unique=True, verbose_name='Бренд')
+    slug = models.SlugField(max_length=100, unique=True, blank=True, null=True,  verbose_name='URL')
+    
+    class Meta:
+        db_table = 'brand'
+        verbose_name = 'Бренда'
+        verbose_name_plural = 'Бренды'
+        
+    def __str__(self) -> str:
+        return self.name
         
         
 class Products(models.Model):
@@ -23,6 +35,7 @@ class Products(models.Model):
     price = models.PositiveIntegerField(verbose_name='Цена')
     quantity= models.PositiveIntegerField(default=0, verbose_name='Количество')
     category= models.ForeignKey(to=Categories, on_delete=models.PROTECT, verbose_name='Категория')
+    brand = models.ForeignKey(to=Brands, on_delete=models.PROTECT, verbose_name='Бренд', blank=True, null=True,)
     
     class Meta:
         db_table = 'product'

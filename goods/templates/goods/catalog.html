@@ -73,7 +73,7 @@
                         {% endif %}
                         <div class="card-body pt-1">
                             <a class="ssilka fw-bolder" href="{% url "catalog:product" product.slug %}">
-                                <p class="card-title">{{ product.name }}</p>
+                                <p class="card-title">{% if product.brand %}{{ product.brand }}{% endif %} {{ product.name }}</p>
                             </a>
                             <p class="card-text text-truncate">{{ product.description }}</p>
                             <p class="product_id">id: {{ product.display_id }}</p>
