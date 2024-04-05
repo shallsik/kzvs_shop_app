@@ -12,6 +12,14 @@ body {
   text-shadow: 1px 1px 2px #000;
 }
 
+.alert-success {
+  --bs-alert-color: rgb(255, 255, 255);
+  --bs-alert-bg: #d6943d;
+  --bs-alert-border-color: #d6943d;
+  --bs-alert-link-color: #d6943d;
+  padding: 0.5rem;
+  text-shadow: 1px 1px 2px #000;
+}
 
 
 .cartoverflow {

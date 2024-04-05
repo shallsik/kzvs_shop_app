@@ -10,10 +10,7 @@
 
 {% block content %}
 <div class="container">
-    <div class="row mt-1">
-        <div class="col-lg-2">
-            <!-- Пустой блок на усмотрение -->
-        </div>
+    <div class="row mt-1 align-items-center">
         <div class="col-lg-10">
             <!-- Контент на странице -->
             <div class=" bg-white p-4 mb-4 mx-2 rounded custom-shadow">
@@ -112,10 +109,16 @@
                                                 id="id_payment_on_get" value="1">
                                             <label class="form-check-label" for="id_payment_on_get">Наличными/картой
                                                 при плучении</label>
+                                                {% if form.payment_on_get.errors %}
+                                                <div class="alert alert-danger alert-dismissible fade show m-0">
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                    {{form.payment_on_get.errors}}
+                                                </div>
+                                                {% endif %}    
                                         </div>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-dark navbarbg pb-1 pt-1 px-2">Оформить заказ</button>
+                                <button type="submit" class="btn btn-dark">Оформить заказ</button>
                             </form>
                         </div>
                     </div>

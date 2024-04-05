@@ -101,18 +101,14 @@
                             <div class="bg-white p-4 mb-4 mx-2 justify-content-between rounded custom-shadow">
                             {% endif %}
                                 <h3 class="text-center mb-4">Корзина 
-                                    {% if carts %}
-                                    <a class="btn btn-dark navbarbg fs-6 main-p pt-0 pb-1 m-0" href="{% static "orders/create_order.html" %}">
-                                        Оформить заказ
-                                    </a>
-                                    {% endif %}</h3>
+                                </h3>
                                 <div class="container " id="cart-items-container">
                                     <!-- Разметка корзины -->
                                     {% include "carts/includes/included_cart.html" %}
                                     <!-- Закончилась разметка корзины -->
                                 </div>
                                 {% if carts %}
-                                <a class="btn btn-dark navbarbg fs-6 main-p pt-0 pb-1 mb-2 ms-2" href="{% static "orders/create_order.html" %}">
+                                <a class="btn btn-dark navbarbg ms-3 mb-2" href="{% url "orders:create_order" %}">
                                     Оформить заказ
                                 </a>
                                 {% endif %}
