@@ -12,9 +12,7 @@
 {% block content %}
 <div class="container">
     <div class="row mt-1">
-        <div class="col-lg-1">
-        </div>
-        <div class="col-lg-11">
+        <div class="col-lg-12">
             <!-- Контент на странице -->
             <div class="row">
                 <!-- Форма фильтров -->
@@ -73,7 +71,7 @@
                         {% endif %}
                         <div class="card-body pt-1">
                             <a class="ssilka fw-bolder" href="{% url "catalog:product" product.slug %}">
-                                <p class="card-title">{% if product.brand %}{{ product.brand }}{% endif %} {{ product.name }}</p>
+                                <p class="card-title">{{ product.name }}</p>
                             </a>
                             <p class="card-text text-truncate">{{ product.description }}</p>
                             <p class="product_id">id: {{ product.display_id }}</p>

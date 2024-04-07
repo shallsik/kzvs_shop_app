@@ -149,6 +149,12 @@ body {
   }
 }
 
+@media (max-width: 550px) {
+  .container {
+    --bs-gutter-x: 0.5rem;
+  }
+}
+
 
 .imgmain {
   -webkit-filter: drop-shadow(5px 5px 5px #222);

@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+from math import fabs
 from pathlib import Path
 
 from django.conf.global_settings import MEDIA_ROOT
@@ -26,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-@sy_200d2ogms%9y8wn$9b@6-n2ol^mshh8$%*ayn5gq&+_#1+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -135,9 +136,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATICFILES_DIRS = [
-    BASE_DIR / 'static'
-    ]
+STATICFILES_DIRS = [ 
+    BASE_DIR / 'static' 
+]
 
 MEDIA_URL = 'media/'
 

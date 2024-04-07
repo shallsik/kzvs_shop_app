@@ -14,17 +14,30 @@
                 <div class="card mb-4 custom-shadow">
                     <div class="row justify-content-start">
                         <!-- Миниатюры -->
-                        <div class="col-md-5 d-flex justify-content-center align-items-center">
+                        <div class="col-md-5 d-flex align-items-center flex-wrap h-75">
+                            
                         {% if product.image %}
                             <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}" class="img-thumbnail" data-bs-toggle="modal" data-bs-target="#imageModal1">
                         {% else %}
                             <img src="{% static "deps/images/image-not-found.jpg" %}" class="card-img-top" alt="..." class="img-thumbnail" data-bs-toggle="modal" data-bs-target="#imageModal1">
                         {% endif %}
-                        </div>
-                        <div class="col-md-6 ">
-                            <p class="pt-3 px-3">{{ product.description }}</p>
-                            <p class="product_id mt-3 px-3">id: {{ product.display_id }}</p>
+                        
 
+                        </div>
+                        <div class="col-md-7 h-75">
+                            <h4 class="pt-3 px-3">{{ product.name }}</h4>
+                            <h4 class="pt-3 px-3 mb-1">О товаре</h4>
+                            <p class="pt-1 px-3 mb-1">{% if product.brand %} <strong>Производитель:</strong> {{ product.brand }}{% endif %}</p>
+                            <p class="pt-1 px-3 "><strong>Описание товара: </strong>{{ product.description }}</p>
+                            <div class="m-0 p-0 w-100">
+                                <p class="mt-1 px-3 mb-1"><strong>id:</strong> {{ product.display_id }}</p>
+                            </div>
+                            <p class="pt-1 px-3">Цена: <strong>{{ product.price }} руб</strong></p>
+                            <p class="pt-1 px-3"><a href="{% url "cart:cart_add" %}" class="btn btn-dark add-to-cart navbarbg"
+                                    data-product-id="{{ product.id }}">
+                                        {% csrf_token %}
+                                        Добавить в корзину</a></p>
+    
                         </div>
                         <!-- Увеличить изображение в модальном окне -->
                         <div class="modal fade" id="imageModal1" tabindex="-1"
@@ -48,7 +61,7 @@
                         </div>
                     </div>
                     <!-- Описание товара -->
-
+{% comment %} 
                     <div class="card-body">
                         <p class="card-text">Цена: <strong>{{ product.price }} руб</strong></p>
                         <h5 class="card-title">{% if product.brand %}{{ product.brand }}{% endif %} {{ product.name }}</h5>
@@ -57,7 +70,7 @@
                         data-product-id="{{ product.id }}">
                             {% csrf_token %}
                             Добавить в корзину</a>
-                    </div>
+                    </div> {% endcomment %}
                 </div>
             </div>
         </div>

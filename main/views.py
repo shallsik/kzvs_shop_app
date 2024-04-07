@@ -1,6 +1,9 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
+from django.conf import settings
+from django.shortcuts import redirect
+
 from goods.models import Categories
 
 
@@ -21,3 +24,10 @@ def about(request):
     }
     
     return render(request, 'main/about.html', context)
+
+
+ 
+ 
+def error_404_view(request, exception):
+   
+    return render(request, '404.html')
