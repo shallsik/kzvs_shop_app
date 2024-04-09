@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
+{% load goods_tags %}
+
 
 {% block modal_cart %}
 {% include "includes/cart_button.html" %}
@@ -11,33 +13,71 @@
         <div class="col-lg-12">
             <!-- Контент на странице -->
             <div class="container mt-5">
-                <div class="card mb-4 custom-shadow">
-                    <div class="row justify-content-start">
+                <div class="card mb-4 px-2">
+                    <div class="row justify-content-start pt-0 px-1">
                         <!-- Миниатюры -->
-                        <div class="col-md-5 d-flex align-items-center flex-wrap h-75">
+                        <div class="col-lg-5 col-md-6 d-flex align-items-center flex-wrap h-75">
                             
                         {% if product.image %}
-                            <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}" class="img-thumbnail" data-bs-toggle="modal" data-bs-target="#imageModal1">
+                            <img src="{{ product.image.url }}" class="card-img-top pt-3" alt="{{ product.name }}" class="img-thumbnail" data-bs-toggle="modal" data-bs-target="#imageModal1">
                         {% else %}
                             <img src="{% static "deps/images/image-not-found.jpg" %}" class="card-img-top" alt="..." class="img-thumbnail" data-bs-toggle="modal" data-bs-target="#imageModal1">
                         {% endif %}
                         
 
                         </div>
-                        <div class="col-md-7 h-75">
-                            <h4 class="pt-3 px-3">{{ product.name }}</h4>
-                            <h4 class="pt-3 px-3 mb-1">О товаре</h4>
-                            <p class="pt-1 px-3 mb-1">{% if product.brand %} <strong>Производитель:</strong> {{ product.brand }}{% endif %}</p>
-                            <p class="pt-1 px-3 "><strong>Описание товара: </strong>{{ product.description }}</p>
+                        <div class="col-lg-7 col-md-6 h-75">
+                            <h3 class="pt-2">{{ product.name }}</h3>
+                            <h4 class="pt-0 mb-1">О товаре</h4>
+                            <p class="pt-1 mb-1">{% if product.brand %} <strong>Производитель:</strong> {{ product.brand }}{% endif %}</p>
+                            <p class="pt-1 mb-1">{% if product.category %} <strong>Категория:</strong> {{ product.category }}{% endif %}</p>
+                            <p class="pt-1 "><strong>Описание товара: </strong>{{ product.description }}</p>
                             <div class="m-0 p-0 w-100">
-                                <p class="mt-1 px-3 mb-1"><strong>id:</strong> {{ product.display_id }}</p>
+                                <p class="mt-1 mb-1"><strong>id:</strong> {{ product.display_id }}</p>
                             </div>
-                            <p class="pt-1 px-3">Цена: <strong>{{ product.price }} руб</strong></p>
-                            <p class="pt-1 px-3"><a href="{% url "cart:cart_add" %}" class="btn btn-dark add-to-cart navbarbg"
+                            <p class="pt-1">Цена: <strong>{{ product.price }} руб</strong></p>
+                            <p class="pt-1"><a href="{% url "cart:cart_add" %}" class="btn btn-dark add-to-cart navbarbg"
                                     data-product-id="{{ product.id }}">
                                         {% csrf_token %}
                                         Добавить в корзину</a></p>
     
+                        </div>
+
+                        
+                    </div>
+                    <div class="row justify-content-center pb-2">
+                        <div class="col-lg-12 px-4">
+                            <div class="row">
+                                <h4 class="pt-1 px-2 mb-1">Вам может понравиться:</h4>
+                                {% for product in goods|slice:":4" %}
+                                <!-- Карта товара -->
+                                <div class="col-lg-3 col-md-6 p-2">
+                                    <div class="card border-primary rounded custom-shadow">
+                                        {% if product.image %}
+                                            <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+                                        {% else %}
+                                        <img src="{% static "deps/images/image-not-found.jpg" %}" class="card-img-top" alt="...">
+                                        {% endif %}
+                                        <div class="card-body pt-1">
+                                            <a class="ssilka fw-bolder" href="{% url "catalog:product" product.slug %}">
+                                                <p class="card-title">{{ product.name }}</p>
+                                            </a>
+                                            <p class="card-text text-trunccate">{{ product.description }}</p>
+                                            <p class="product_id">id: {{ product.display_id }}</p>
+                                            <div class="d-flex justify-content-between">
+                                                <p><strong>{{ product.price }} руб</strong></p>
+                                                <a href="{% url "cart:cart_add" %}" class="btn add-to-cart"
+                                                data-product-id="{{ product.id }}">
+                                                    {% csrf_token %}
+                                                    <img class="mx-1" src="{% static "deps/icons/cart-plus.svg" %}" alt="Catalog Icon"
+                                                        width="32" height="32">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
                         </div>
                         <!-- Увеличить изображение в модальном окне -->
                         <div class="modal fade" id="imageModal1" tabindex="-1"

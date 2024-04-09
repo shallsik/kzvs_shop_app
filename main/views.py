@@ -25,9 +25,12 @@ def about(request):
     
     return render(request, 'main/about.html', context)
 
-
- 
  
 def error_404_view(request, exception):
+   
+    return render(request, '404.html')
+
+
+def error_500_view(request, exception):
    
     return render(request, '404.html')

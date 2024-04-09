@@ -12,7 +12,7 @@ def catalog(request, category_slug=None):
     query = request.GET.get('q', None)
     
     if category_slug == 'all':
-        goods = Products.objects.all()
+        goods = Products.objects.all().order_by('?')
     elif query:
         goods = q_search(query)
     else:
@@ -35,9 +35,23 @@ def catalog(request, category_slug=None):
 def product(request, product_slug):
     
     product = Products.objects.get(slug=product_slug)
-    
+    category_slug = product.category.slug
+    goods = Products.objects.filter(category__slug=category_slug).order_by('?')
     context = {
-        'product': product,
+        "product": product,
+        "goods": goods,
     }
     
     return render(request, "goods/product.html", context=context)
+
+
+# def product(request, product_slug):
+    
+#     product = Products.objects.get(slug=product_slug)
+
+#     context = {
+#         'product': product,
+        
+#     }
+    
+#     return render(request, "goods/product.html", context=context)

@@ -113,6 +113,12 @@ body {
   width: 100%;
 }
 
+.text-trunccate {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 #carouselmain {
   padding-inline: 24px;
   padding-top: 24px;
