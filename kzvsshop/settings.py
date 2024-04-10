@@ -92,12 +92,12 @@ WSGI_APPLICATION = 'kzvsshop.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'kzvs',
-        'USER': 'kzvs',
-        'PASSWORD': 'kzvs',
+        'USER': 'root',
+        'PASSWORD': 'ZXCvbnm94',
         'HOST': 'localhost',
-        'PORT': '5432',
+        'PORT': '3306',
     }
 }
 
